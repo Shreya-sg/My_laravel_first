@@ -19,5 +19,6 @@ Route::get('/', function () {
 
 
 Route::get('/home', [HomeController::class, 'home']);
-Route::get('/about', [HomeController::class, 'about']);
+Route::get('/about', [HomeController::class, 'about'])->name('post.index');
 Route::get('/contact', [HomeController::class, 'contact']);
+Route::get('/posts/{slug}', [HomeController::class, 'posts'])->name('post.single');

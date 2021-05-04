@@ -53,7 +53,8 @@
      <div class="col-sm-12">
         <h1>{{ $posts->post_title }}</h1>
         <p>{{ $posts->post_description }}</p>
-        <a href="/{{ $posts->post_slug }}">Read More</a>
+        <!-- <a href="/{{ $posts->post_slug }}">Read More</a> -->
+        <a href="{{ route('post.single', ['slug'=> $posts->post_slug])}}">Read More</a> 
      </div>
      @endforeach
   </div>

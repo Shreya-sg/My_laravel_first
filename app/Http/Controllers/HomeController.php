@@ -51,4 +51,11 @@ class HomeController extends Controller
         return view('contact', compact('contact_title', 'contact_short_description', 'contact_sub_heading', 'contact_sub_description'));  
         
     }
+
+    public function posts($slug){
+        $post= Custompost::Where('post_slug', $slug)->firstorFail();
+        // dd($post);
+        return view('post', compact('post'));  
+        return $slug;
+    }
 }
