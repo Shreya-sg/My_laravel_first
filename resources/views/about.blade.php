@@ -48,5 +48,15 @@
   </div>
 
 
+  <div class="row" style="margin-bottom:50px;">
+     @foreach($post as $posts)
+     <div class="col-sm-12">
+        <h1>{{ $posts->post_title }}</h1>
+        <p>{{ $posts->post_description }}</p>
+        <a href="/{{ $posts->post_slug }}">Read More</a>
+     </div>
+     @endforeach
+  </div>
+
 </body>
 </html>
