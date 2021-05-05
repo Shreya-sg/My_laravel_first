@@ -19,19 +19,14 @@
   
 <div class="container">
 
-
-
-
   <div class="row" style="margin-bottom:50px;">
-     @foreach($blog as $blog_inner_post)
+   
      <div class="col-sm-12">
-        <h1>{{ $blog_inner_post->post_title }}</h1>
-        <p>{{ $blog_inner_post->post_content }}</p>
+        <h1>{{ $postslug ->post_title }}</h1>
+        <p>{{ $postslug ->post_content }}</p>
      </div>
-     @endforeach
+    
   </div> 
-
-
 
 </body>
 </html>

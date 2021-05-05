@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Custompost;
+use App\Models\Post;
 
 class HomeController extends Controller
 {
@@ -39,7 +40,7 @@ class HomeController extends Controller
 
         $post = custompost::get();
         // dd($post);
-        return view('about', compact('post','about_title', 'about_short_description', 'about_sub_heading', 'about_sub_description', 'about_sub_heading_second','about_sub_heading_second_des',));    
+        return view('about', compact('about_title', 'about_short_description', 'about_sub_heading', 'about_sub_description', 'about_sub_heading_second','about_sub_heading_second_des',));    
     }
 
     public function contact(){
@@ -58,4 +59,27 @@ class HomeController extends Controller
         return view('post', compact('post'));  
         return $slug;
     }
+
+
+
+    public function blog_post(){
+        $about_title= "Post";
+        // dd($about_title);
+        $about_short_description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit";
+        $about_sub_heading= "How To Manage Risks in Your Life";
+        $about_sub_description= "Do you want to reach your full potential? A big part of that, I believe, is managing your risks. There are risks in different parts of your life, and the better you manage them, the better your chance to move forward in life. Not managing your risks well, on the other hand, could cause you a big headache down the road.";
+        $about_sub_heading_second ="A Key to Being Creative Like Leonardo da Vinci";
+        $about_sub_heading_second_des ="What is the key to being creative? What is the factor behind it? I believe that the answer to this question is important. After all, being creative is essential in this age of automation. More and more routine tasks are being automated, so your creativity can make the difference between thriving and sinking.";
+    
+        $blog = Post::get();
+        // dd($blog);
+        return view('post', compact('blog','about_title', 'about_short_description', 'about_sub_heading', 'about_sub_description', 'about_sub_heading_second','about_sub_heading_second_des',));    
+    }
+
+    public function blog_post_single($slug){
+        $postslug =Post::Where('post_slug',$slug)->get();
+        // dd($postslug);
+        return view('postsingle', compact('postslug'));    
+    }
+
 }

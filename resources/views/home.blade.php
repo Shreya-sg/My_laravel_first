@@ -50,7 +50,7 @@
 
   <div class="row">
      @foreach($home_post as $post)
-        <div class="col-sm-3">
+        <div class="col-md-4">
         <h3>{{ $post['title'] }}</h3>
         <p>{{ $post['Description'] }}</p>
         </div>

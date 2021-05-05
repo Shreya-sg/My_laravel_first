@@ -36,7 +36,7 @@
         <p> {{ $about_sub_description }} </p>
      </div>
   </div>
-
+<!-- 
   <div class="row" style="margin-bottom:50px;">
      @foreach($post as $posts)
      <div class="col-sm-12">
@@ -45,19 +45,20 @@
         <a href="/{{ $posts->post_slug }}">Read More</a>
      </div>
      @endforeach
-  </div>
+  </div> -->
 
 
-  <div class="row" style="margin-bottom:50px;">
+  <!-- <div class="row" style="margin-bottom:50px;">
      @foreach($post as $posts)
      <div class="col-sm-12">
         <h1>{{ $posts->post_title }}</h1>
         <p>{{ $posts->post_description }}</p>
         <!-- <a href="/{{ $posts->post_slug }}">Read More</a> -->
-        <a href="{{ route('post.single', ['slug'=> $posts->post_slug])}}">Read More</a> 
+        <!-- <a href="{{ route('post.single', ['slug'=> $posts->post_slug])}}">Read More</a>
+        <!-- <a href="http:/127.0.0.1:8000/about{{$posts->post_slug}}">Read More</a> -->
      </div>
      @endforeach
-  </div>
+  </div> -->
 
 </body>
 </html>
