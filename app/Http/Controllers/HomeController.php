@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Custompost;
 use App\Models\Post;
+use App\Models\News;
 
 class HomeController extends Controller
 {
@@ -45,13 +46,49 @@ class HomeController extends Controller
 
     public function contact(){
         $contact_title= "Contact Us";
+        // dd($contact_title);
         $contact_short_description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit";
         $contact_sub_heading= "Contact Us On";
         $contact_sub_description= "Do you want to reach your full potential? A big part of that, I believe, is managing your risks. There are risks in different parts of your life, and the better you manage them, the better your chance to move forward in life. Not managing your risks well, on the other hand, could cause you a big headache down the road.";
+       
+       //Getting NewsPost 
+        $news_post = News::get();
 
-        return view('contact', compact('contact_title', 'contact_short_description', 'contact_sub_heading', 'contact_sub_description'));  
+        return view('contact', compact('news_post','contact_title', 'contact_short_description', 'contact_sub_heading', 'contact_sub_description'));  
         
     }
+
+    //News Single page
+    public function newspost($slug){
+       $newsslugpost = News::where('news_slug',$slug)->firstorFail();
+       //dd($newsslugpost);
+       //return $slug;
+       return view('newssingle', compact('newsslugpost'));  
+    }
+
+    //News Crud
+    public function create(){
+        $newsslugpost = false;
+        return view('newscreate_edit', compact('newsslugpost'));  
+    }
+
+    public function edit($slug){
+       $newsslugpost = News::where('news_slug',$slug)->firstorFail();
+       return view('newscreate_edit', compact('newsslugpost'));  
+    }
+
+    // public function save(){
+    //     $newsslugpost = false;
+    //     return view('newscreate_edit', compact('newsslugpost'));  
+    // }
+
+    // public function update($slug){
+    //    $newsslugpost = News::where('news_slug',$slug)->firstorFail();
+    //    return view('newscreate_edit', compact('newsslugpost'));  
+    // }
+
+
+
 
     public function posts($slug){
         $post= Custompost::Where('post_slug', $slug)->firstorFail();
@@ -59,6 +96,8 @@ class HomeController extends Controller
         return view('post', compact('post'));  
         return $slug;
     }
+
+  
 
 
 

@@ -29,6 +29,23 @@
   </div>
 
 
+  <div class="my_news_blog">
+     <div class="row">
+       @foreach($news_post as $news_posts)
+        <div class="col-md-4">
+           <h1>
+              <!-- <a href="/{{$news_posts->news_slug}}">
+                {{ $news_posts->title}}
+              </a> -->
+              <a href="{{route('newspost.single',['slug' => $news_posts->news_slug] )}}">
+                {{ $news_posts->title}}
+              </a>
+            </h1>
+           <p>{{ $news_posts->description}}</p>
+        </div>
+        @endforeach
+     </div>
+  </div>
 
 </body>
 </html>
