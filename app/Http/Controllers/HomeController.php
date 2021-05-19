@@ -77,15 +77,19 @@ class HomeController extends Controller
        return view('newscreate_edit', compact('newsslugpost'));  
     }
 
-    // public function save(){
-    //     $newsslugpost = false;
-    //     return view('newscreate_edit', compact('newsslugpost'));  
-    // }
+    public function save(){
+       News::create([
+         'news_title' => request('title'),
+         'newspost-slug' => request('news-slug'),
+         'news_description' => request('description')
+       ]);
+       return redirect() -> route('newspost.index');
+    }
 
-    // public function update($slug){
-    //    $newsslugpost = News::where('news_slug',$slug)->firstorFail();
-    //    return view('newscreate_edit', compact('newsslugpost'));  
-    // }
+    public function update($slug){
+       $newsslugpost = News::where('news_slug',$slug)->firstorFail();
+       return view('newscreate_edit', compact('newsslugpost'));  
+    }
 
 
 

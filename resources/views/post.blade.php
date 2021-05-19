@@ -19,9 +19,6 @@
   
 <div class="container">
 
-
-
-
   <div class="row" style="margin-bottom:50px;">
      @foreach($blog as $blog_inner_post)
      <div class="col-sm-12">
